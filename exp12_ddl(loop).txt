@@ -1,0 +1,23 @@
+mysql> delimiter //
+mysql> create procedure stars_loop()
+    -> begin
+    -> declare num int default 1;
+    -> declare res varchar(50) default '';
+    -> while num<80000 do
+    -> set res=concat(res,num,',');
+    -> set num=num*4;
+    -> end while;
+    -> select res;
+    -> end//
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> call stars_loop();
+    -> //
++--------------------------------------+
+| res                                  |
++--------------------------------------+
+| 1,4,16,64,256,1024,4096,16384,65536, |
++--------------------------------------+
+1 row in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)

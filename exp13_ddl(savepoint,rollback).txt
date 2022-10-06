@@ -1,0 +1,53 @@
+mysql> use db;
+Database changed
+mysql> select * from stars;
++------------+-------------+------------+
+| star_shape | star_colour | star_count |
++------------+-------------+------------+
+| rectangle  | red         |          5 |
+| hexagon    | voilet      |          9 |
+| triangle   | blue        |         26 |
+| circle     | black       |         45 |
++------------+-------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> savepoint insertion;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> update stars set star_colour="yellow" where star_shape="rectangle";
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from stars;
++------------+-------------+------------+
+| star_shape | star_colour | star_count |
++------------+-------------+------------+
+| rectangle  | yellow      |          5 |
+| hexagon    | voilet      |          9 |
+| triangle   | blue        |         26 |
+| circle     | black       |         45 |
++------------+-------------+------------+
+4 rows in set (0.02 sec)
+
+mysql> savepoint updation;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> rollback to insertion;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from stars;
++------------+-------------+------------+
+| star_shape | star_colour | star_count |
++------------+-------------+------------+
+| rectangle  | red         |          5 |
+| hexagon    | voilet      |          9 |
+| triangle   | blue        |         26 |
+| circle     | black       |         45 |
++------------+-------------+------------+
+4 rows in set (0.00 sec)

@@ -1,0 +1,49 @@
+mysql> create table stars
+    -> (star_shape char(24),star_colour char(34),star_count int(28));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into stars
+    -> values("rectangle","red",5),("hexagon","voilet",9),("triangle","blue",26),("circle","black",45);
+Query OK, 4 rows affected (0.02 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select*from stars
+    -> ;
++------------+-------------+------------+
+| star_shape | star_colour | star_count |
++------------+-------------+------------+
+| rectangle  | red         |          5 |
+| hexagon    | voilet      |          9 |
+| triangle   | blue        |         26 |
+| circle     | black       |         45 |
++------------+-------------+------------+
+4 rows in set (0.01 sec)
+
+mysql> select star_shape,star_count,
+    -> case
+    -> when star_count<40 then 'poor'
+    -> when star_count=45 then 'excellent'
+    -> else 'good'
+    -> end comments
+    -> from stars;
++------------+------------+-----------+
+| star_shape | star_count | comments  |
++------------+------------+-----------+
+| rectangle  |          5 | poor      |
+| hexagon    |          9 | poor      |
+| triangle   |         26 | poor      |
+| circle     |         45 | excellent |
++------------+------------+-----------+
+4 rows in set (0.01 sec)
+mysql> select star_shape,star_count,
+    -> if(star_count>40,'great','superb')
+    -> from stars;
++------------+------------+------------------------------------+
+| star_shape | star_count | if(star_count>40,'great','superb') |
++------------+------------+------------------------------------+
+| rectangle  |          5 | superb                             |
+| hexagon    |          9 | superb                             |
+| triangle   |         26 | superb                             |
+| circle     |         45 | great                              |
++------------+------------+------------------------------------+
+4 rows in set (0.01 sec)

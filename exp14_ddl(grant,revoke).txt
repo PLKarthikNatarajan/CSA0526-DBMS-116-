@@ -1,0 +1,61 @@
+mysql> desc bank;
++-----------------+----------+------+-----+---------+-------+
+| Field           | Type     | Null | Key | Default | Extra |
++-----------------+----------+------+-----+---------+-------+
+| acc_id          | int(6)   | YES  | UNI | NULL    |       |
+| acc_type        | char(22) | YES  | MUL | NULL    |       |
+| acc_holder_name | char(30) | NO   | PRI |         |       |
+| acc_balance     | int(16)  | YES  |     | NULL    |       |
+| acc_holder_dob  | date     | YES  |     | NULL    |       |
++-----------------+----------+------+-----+---------+-------+
+5 rows in set (0.03 sec)
+
+mysql> create user ram;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> grant all on persons to ram;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for ram;
++-----------------------------------------------------+
+| Grants for ram@%                                    |
++-----------------------------------------------------+
+| GRANT USAGE ON *.* TO 'ram'@'%'                     |
+| GRANT ALL PRIVILEGES ON `db`.`persons` TO 'ram'@'%' |
++-----------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke all on persons from ram;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for ram;
++---------------------------------+
+| Grants for ram@%                |
++---------------------------------+
+| GRANT USAGE ON *.* TO 'ram'@'%' |
++---------------------------------+
+1 row in set (0.00 sec)
+
+mysql> grant select,delete,update on bank to ram;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show grants for ram;
++----------------------------------------------------------+
+| Grants for ram@%                                         |
++----------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'ram'@'%'                          |
+| GRANT SELECT, UPDATE, DELETE ON `db`.`bank` TO 'ram'@'%' |
++----------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke delete on bank from ram;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for ram;
++--------------------------------------------------+
+| Grants for ram@%                                 |
++--------------------------------------------------+
+| GRANT USAGE ON *.* TO 'ram'@'%'                  |
+| GRANT SELECT, UPDATE ON `db`.`bank` TO 'ram'@'%' |
++--------------------------------------------------+
+2 rows in set (0.00 sec)
