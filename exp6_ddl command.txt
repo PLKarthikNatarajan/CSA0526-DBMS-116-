@@ -1,0 +1,32 @@
+mysql> select* from factory
+    -> where emp_id in(234);
++--------+----------+---------+
+| emp_id | emp_name | emp_age |
++--------+----------+---------+
+|    234 | jhonwick |      32 |
++--------+----------+---------+
+1 row in set (0.00 sec)
+
+mysql> select* from factory
+    -> \;
+ERROR:
+Unknown command '\;'.
+    -> insert into factory
+    -> values(634,'micheal',45),(465,'micheal',64);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\;
+insert into factory
+values(634,'micheal',45),(465,'micheal',64)' at line 2
+mysql> insert into factory
+    -> values(634,'micheal',45),(465,'daniel',64);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select* from factory
+    -> where emp_id between 234 and 465;
++--------+----------+---------+
+| emp_id | emp_name | emp_age |
++--------+----------+---------+
+|    234 | jhonwick |      32 |
+|    465 | daniel   |      64 |
++--------+----------+---------+
+2 rows in set (0.00 sec)

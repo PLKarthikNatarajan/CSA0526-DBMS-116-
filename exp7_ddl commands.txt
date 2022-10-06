@@ -1,0 +1,41 @@
+mysql> select *from factory
+    -> order by emp_age;
++--------+----------+---------+
+| emp_id | emp_name | emp_age |
++--------+----------+---------+
+|    234 | jhonwick |      32 |
+|    634 | micheal  |      45 |
+|    465 | daniel   |      64 |
++--------+----------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select *from factory group by emp_id;
++--------+----------+---------+
+| emp_id | emp_name | emp_age |
++--------+----------+---------+
+|    234 | jhonwick |      32 |
+|    465 | daniel   |      64 |
+|    634 | micheal  |      45 |
++--------+----------+---------+
+3 rows in set (0.01 sec)
+
+mysql> select *from factory group by emp_name;
++--------+----------+---------+
+| emp_id | emp_name | emp_age |
++--------+----------+---------+
+|    465 | daniel   |      64 |
+|    234 | jhonwick |      32 |
+|    634 | micheal  |      45 |
++--------+----------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select *from factory
+    -> group by emp_name
+    -> having emp_age>40;
++--------+----------+---------+
+| emp_id | emp_name | emp_age |
++--------+----------+---------+
+|    465 | daniel   |      64 |
+|    634 | micheal  |      45 |
++--------+----------+---------+
+2 rows in set (0.00 sec)

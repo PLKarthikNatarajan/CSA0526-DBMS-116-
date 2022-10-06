@@ -1,0 +1,34 @@
+mysql> select *from factory;
++--------+----------+---------+
+| emp_id | emp_name | emp_age |
++--------+----------+---------+
+|    234 | jhonwick |      24 |
+|    634 | micheal  |      32 |
++--------+----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> delete from factory
+    -> where emp_age=32;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from factory;
++--------+----------+---------+
+| emp_id | emp_name | emp_age |
++--------+----------+---------+
+|    234 | jhonwick |      24 |
++--------+----------+---------+
+1 row in set (0.00 sec)
+
+mysql> update factory
+    -> set emp_age=32
+    -> where emp_id=234;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from factory;
++--------+----------+---------+
+| emp_id | emp_name | emp_age |
++--------+----------+---------+
+|    234 | jhonwick |      32 |
++--------+----------+---------+
+1 row in set (0.00 sec)

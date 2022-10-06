@@ -1,0 +1,45 @@
+mysql> select *from bank;
++--------+----------+-----------------+-------------+----------------+
+| acc_id | acc_type | acc_holder_name | acc_balance | acc_holder_dob |
++--------+----------+-----------------+-------------+----------------+
+|   7579 | current  | krithik         |       10000 | 0000-00-00     |
+|   3456 | savings  | tarun           |        5000 | 0000-00-00     |
++--------+----------+-----------------+-------------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> select acc_id,acc_type
+    -> from bank
+    -> where acc_type in(select acc_holder_name where acc_id=7579);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where acc_id=7579)' at line 3
+mysql> select acc_id,acc_type
+    -> from bank
+    -> where acc_type in(select acc_holder_name from bank where acc_id=7579);
+Empty set (0.01 sec)
+
+mysql> select acc_id,acc_type
+    -> from bank
+    -> where acc_type in(select acc_type from bank where acc_id=7579);
++--------+----------+
+| acc_id | acc_type |
++--------+----------+
+|   7579 | current  |
++--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select* from factory where emp_age>=(select avg(emp_age)from factory);
++--------+----------+---------+
+| emp_id | emp_name | emp_age |
++--------+----------+---------+
+|    465 | daniel   |      64 |
++--------+----------+---------+
+1 row in set (0.02 sec)
+
+mysql> select * from factory;
++--------+----------+---------+
+| emp_id | emp_name | emp_age |
++--------+----------+---------+
+|    234 | jhonwick |      32 |
+|    634 | micheal  |      45 |
+|    465 | daniel   |      64 |
++--------+----------+---------+
+3 rows in set (0.00 sec)

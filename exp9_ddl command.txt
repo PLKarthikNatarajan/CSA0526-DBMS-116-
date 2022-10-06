@@ -1,0 +1,113 @@
+mysql> use db
+Database changed
+mysql> create table creams
+    -> values(acc_id int(16);cream_name char(24));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values(acc_id int(16)' at line 2
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cream_name char(24))' at line 1
+mysql> create table creams
+    -> values(acc_id int(16),cream_name char(24));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values(acc_id int(16),cream_name char(24))' at line 2
+mysql> create table creams
+    -> (acc_id int(16);cream_name char(24));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cream_name char(24))' at line 1
+mysql> create table creams
+    -> (acc_id int(16),cream_name char(24));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into creams
+    -> values(234,'choco'),(345,'vanilla');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select*from bank;
++--------+----------+-----------------+-------------+----------------+
+| acc_id | acc_type | acc_holder_name | acc_balance | acc_holder_dob |
++--------+----------+-----------------+-------------+----------------+
+|   7579 | current  | krithik         |       10000 | 0000-00-00     |
+|   3456 | savings  | tarun           |        5000 | 0000-00-00     |
++--------+----------+-----------------+-------------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> select*from creams;
++--------+------------+
+| acc_id | cream_name |
++--------+------------+
+|    234 | choco      |
+|    345 | vanilla    |
++--------+------------+
+2 rows in set (0.00 sec)
+
+mysql> drop table creams;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table creams
+    -> (acc_id int(16),cream_name char(24));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into creams
+    -> values(757,'choco'),(3456,'vanilla');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select*from creams;
++--------+------------+
+| acc_id | cream_name |
++--------+------------+
+|    757 | choco      |
+|   3456 | vanilla    |
++--------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select acc_id,acc_holder_name,cream_name
+    -> from creams,bank;
+ERROR 1052 (23000): Column 'acc_id' in field list is ambiguous
+mysql> select acc_id,acc_holder_name,cream_name
+    -> from creams,bank;
+ERROR 1052 (23000): Column 'acc_id' in field list is ambiguous
+mysql> select acc_id,acc_holder_name,cream_name
+    -> from creams,bank
+    -> where bank.acc_id=creams.acc_id;
+ERROR 1052 (23000): Column 'acc_id' in field list is ambiguous
+mysql> select acc_holder_name,cream_name
+    -> from creams,bank
+    -> where bank.acc_id=creams.acc_id;
++-----------------+------------+
+| acc_holder_name | cream_name |
++-----------------+------------+
+| tarun           | vanilla    |
++-----------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select cream_name
+    -> from creams
+    -> left outer join bank
+    -> on bank.acc_id=creams.acc_id;
++------------+
+| cream_name |
++------------+
+| choco      |
+| vanilla    |
++------------+
+2 rows in set (0.00 sec)
+
+mysql> select cream_name
+    -> from creams
+    -> right outer join bank
+    -> on bank.acc_id=creams.acc_id;
++------------+
+| cream_name |
++------------+
+| vanilla    |
+| NULL       |
++------------+
+2 rows in set (0.00 sec)
+
+mysql> select*from bank;
++--------+----------+-----------------+-------------+----------------+
+| acc_id | acc_type | acc_holder_name | acc_balance | acc_holder_dob |
++--------+----------+-----------------+-------------+----------------+
+|   7579 | current  | krithik         |       10000 | 0000-00-00     |
+|   3456 | savings  | tarun           |        5000 | 0000-00-00     |
++--------+----------+-----------------+-------------+----------------+
+2 rows in set (0.00 sec)
