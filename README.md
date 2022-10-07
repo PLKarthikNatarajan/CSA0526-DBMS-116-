@@ -46,6 +46,6 @@ https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp4_ddl%20com
 ## Experiment 19
 [SQL Queries]()
 ## Experiment 20
-[SQL Queries]()
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp20_ddl.txt)
 ## Experiment 21
 [SQL Queries]()
