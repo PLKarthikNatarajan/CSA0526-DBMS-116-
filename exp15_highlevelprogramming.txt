@@ -1,0 +1,44 @@
+mysql> use db;
+Database changed
+mysql> select*from stars
+    -> ;
++------------+-------------+------------+
+| star_shape | star_colour | star_count |
++------------+-------------+------------+
+| rectangle  | red         |          5 |
+| hexagon    | voilet      |          9 |
+| triangle   | blue        |         26 |
+| circle     | black       |         45 |
++------------+-------------+------------+
+4 rows in set (0.01 sec)
+
+mysql> delimiter//
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'delimiter//' at line 1
+mysql> delimiter //
+mysql> create procedure stars()
+    -> begin
+    -> select star_shape,star_colour
+    -> from stars
+    -> where star_count=45;
+    -> end //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call stars();
+    -> //
++------------+-------------+
+| star_shape | star_colour |
++------------+-------------+
+| circle     | black       |
++------------+-------------+
+1 row in set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+mysql> select*from stars
+    -> where star_count=26;
++------------+-------------+------------+
+| star_shape | star_colour | star_count |
++------------+-------------+------------+
+| triangle   | blue        |         26 |
++------------+-------------+------------+
+1 row in set (0.00 sec)

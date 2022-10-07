@@ -1,0 +1,36 @@
+mysql> use db;
+Database changed
+mysql> select*from stars;
++------------+-------------+------------+
+| star_shape | star_colour | star_count |
++------------+-------------+------------+
+| rectangle  | red         |          5 |
+| hexagon    | voilet      |          9 |
+| triangle   | blue        |         26 |
+| circle     | black       |         45 |
++------------+-------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select repeat(star_shpae,2) from stars;
+ERROR 1054 (42S22): Unknown column 'star_shpae' in 'field list'
+mysql> select repeat(star_shape,2) from stars;
++----------------------+
+| repeat(star_shape,2) |
++----------------------+
+| rectanglerectangle   |
+| hexagonhexagon       |
+| triangletriangle     |
+| circlecircle         |
++----------------------+
+4 rows in set (0.01 sec)
+
+mysql> select repeat(star_colour,2) from stars;
++-----------------------+
+| repeat(star_colour,2) |
++-----------------------+
+| redred                |
+| voiletvoilet          |
+| blueblue              |
+| blackblack            |
++-----------------------+
+4 rows in set (0.00 sec)

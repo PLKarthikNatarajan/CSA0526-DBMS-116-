@@ -1,0 +1,98 @@
+mysql> insert into stars values('polygon','green',69);
+ERROR 1046 (3D000): No database selected
+mysql> use db;
+Database changed
+mysql> insert into stars values('polygon','green',69);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into stars values('cube','light green',79);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into stars values('cube','merun',89);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from stars;
++------------+-------------+------------+
+| star_shape | star_colour | star_count |
++------------+-------------+------------+
+| rectangle  | red         |          5 |
+| hexagon    | voilet      |          9 |
+| triangle   | blue        |         26 |
+| circle     | black       |         45 |
+| polygon    | green       |         69 |
+| cube       | light green |         79 |
+| cube       | merun       |         89 |
++------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> select @@autocommit;
++--------------+
+| @@autocommit |
++--------------+
+|            1 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> insert into stars values('cuboid','orange',100);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from stars;
++------------+-------------+------------+
+| star_shape | star_colour | star_count |
++------------+-------------+------------+
+| rectangle  | red         |          5 |
+| hexagon    | voilet      |          9 |
+| triangle   | blue        |         26 |
+| circle     | black       |         45 |
+| polygon    | green       |         69 |
+| cube       | light green |         79 |
+| cube       | merun       |         89 |
+| cuboid     | orange      |        100 |
++------------+-------------+------------+
+8 rows in set (0.00 sec)
+
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select @@autocommit;
++--------------+
+| @@autocommit |
++--------------+
+|            0 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> delete from stars where star_count=89;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select*from stars;
++------------+-------------+------------+
+| star_shape | star_colour | star_count |
++------------+-------------+------------+
+| rectangle  | red         |          5 |
+| hexagon    | voilet      |          9 |
+| triangle   | blue        |         26 |
+| circle     | black       |         45 |
+| polygon    | green       |         69 |
+| cube       | light green |         79 |
+| cuboid     | orange      |        100 |
++------------+-------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select*from stars;
++------------+-------------+------------+
+| star_shape | star_colour | star_count |
++------------+-------------+------------+
+| rectangle  | red         |          5 |
+| hexagon    | voilet      |          9 |
+| triangle   | blue        |         26 |
+| circle     | black       |         45 |
+| polygon    | green       |         69 |
+| cube       | light green |         79 |
+| cube       | merun       |         89 |
+| cuboid     | orange      |        100 |
++------------+-------------+------------+
+8 rows in set (0.00 sec)
