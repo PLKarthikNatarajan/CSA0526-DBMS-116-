@@ -1,0 +1,87 @@
+mysql> create table student(regno char(28),name char(34),age int(10),curr_sub char(40),cgpa varchar(16));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc student;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| regno    | char(28)    | YES  |     | NULL    |       |
+| name     | char(34)    | YES  |     | NULL    |       |
+| age      | int(10)     | YES  |     | NULL    |       |
+| curr_sub | char(40)    | YES  |     | NULL    |       |
+| cgpa     | varchar(16) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> insert into student values("19201113","varun",21,"maths","8.9");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values("19201058","varun",26,"chemistry","9.1");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student values("19211519","bharath",20,"dbms","7.9");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from student;
++----------+---------+------+-----------+------+
+| regno    | name    | age  | curr_sub  | cgpa |
++----------+---------+------+-----------+------+
+| 19201113 | varun   |   21 | maths     | 8.9  |
+| 19201058 | varun   |   26 | chemistry | 9.1  |
+| 19211519 | bharath |   20 | dbms      | 7.9  |
++----------+---------+------+-----------+------+
+3 rows in set (0.00 sec)
+
+mysql> update student set name="kishan" where regno=19201058;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from student;
++----------+---------+------+-----------+------+
+| regno    | name    | age  | curr_sub  | cgpa |
++----------+---------+------+-----------+------+
+| 19201113 | varun   |   21 | maths     | 8.9  |
+| 19201058 | kishan  |   26 | chemistry | 9.1  |
+| 19211519 | bharath |   20 | dbms      | 7.9  |
++----------+---------+------+-----------+------+
+3 rows in set (0.01 sec)
+
+mysql> select sum(curr_sub) from student;
++---------------+
+| sum(curr_sub) |
++---------------+
+|             0 |
++---------------+
+1 row in set, 3 warnings (0.00 sec)
+
+mysql> select sum(cgpa) from student;
++-----------+
+| sum(cgpa) |
++-----------+
+|      25.9 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select avg(cgpa) from student;
++-------------------+
+| avg(cgpa)         |
++-------------------+
+| 8.633333333333333 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select min(cgpa) from student;
++-----------+
+| min(cgpa) |
++-----------+
+| 7.9       |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select max(cgpa) from student;
++-----------+
+| max(cgpa) |
++-----------+
+| 9.1       |
++-----------+
+1 row in set (0.00 sec)

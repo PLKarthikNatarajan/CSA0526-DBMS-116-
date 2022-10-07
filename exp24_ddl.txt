@@ -1,0 +1,67 @@
+mysql> create table car(car_model char(26),car_name char(36),car_mileage int(6), car_price int(28));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc car;
++-------------+----------+------+-----+---------+-------+
+| Field       | Type     | Null | Key | Default | Extra |
++-------------+----------+------+-----+---------+-------+
+| car_model   | char(26) | YES  |     | NULL    |       |
+| car_name    | char(36) | YES  |     | NULL    |       |
+| car_mileage | int(6)   | YES  |     | NULL    |       |
+| car_price   | int(28)  | YES  |     | NULL    |       |
++-------------+----------+------+-----+---------+-------+
+4 rows in set (0.03 sec)
+
+mysql> insert into car values("suv","kia",13,1400000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into car values("sedan","honda city",16,2000000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into car values("muv","volvo x60",24,4000000);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from car;
++-----------+------------+-------------+-----------+
+| car_model | car_name   | car_mileage | car_price |
++-----------+------------+-------------+-----------+
+| suv       | kia        |          13 |   1400000 |
+| sedan     | honda city |          16 |   2000000 |
+| muv       | volvo x60  |          24 |   4000000 |
++-----------+------------+-------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select*from car group by car_name;
++-----------+------------+-------------+-----------+
+| car_model | car_name   | car_mileage | car_price |
++-----------+------------+-------------+-----------+
+| sedan     | honda city |          16 |   2000000 |
+| suv       | kia        |          13 |   1400000 |
+| muv       | volvo x60  |          24 |   4000000 |
++-----------+------------+-------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> create view cost as select*from car where car_price>1000000;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select*from car;
++-----------+------------+-------------+-----------+
+| car_model | car_name   | car_mileage | car_price |
++-----------+------------+-------------+-----------+
+| suv       | kia        |          13 |   1400000 |
+| sedan     | honda city |          16 |   2000000 |
+| muv       | volvo x60  |          24 |   4000000 |
++-----------+------------+-------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> delete from car where car_model="muv";
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select*from car;
++-----------+------------+-------------+-----------+
+| car_model | car_name   | car_mileage | car_price |
++-----------+------------+-------------+-----------+
+| suv       | kia        |          13 |   1400000 |
+| sedan     | honda city |          16 |   2000000 |
++-----------+------------+-------------+-----------+
+2 rows in set (0.00 sec)

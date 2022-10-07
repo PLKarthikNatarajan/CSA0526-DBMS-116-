@@ -1,0 +1,70 @@
+mysql> use db;
+Database changed
+mysql> create table hospital(patient_id int(6),patient_name char(8),disease_desc char(16),patient_age int(10));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc hospital;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| patient_id   | int(6)   | YES  |     | NULL    |       |
+| patient_name | char(8)  | YES  |     | NULL    |       |
+| disease_desc | char(16) | YES  |     | NULL    |       |
+| patient_age  | int(10)  | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> insert into hospital values(001,"rakesh","typhoid",24);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into hospital values(002,"mukunth","fever",32);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into hospital values(003,"varun","jondis",50);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from hospital;
++------------+--------------+--------------+-------------+
+| patient_id | patient_name | disease_desc | patient_age |
++------------+--------------+--------------+-------------+
+|          1 | rakesh       | typhoid      |          24 |
+|          2 | mukunth      | fever        |          32 |
+|          3 | varun        | jondis       |          50 |
++------------+--------------+--------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select patient_id,patient_name from hospital;
++------------+--------------+
+| patient_id | patient_name |
++------------+--------------+
+|          1 | rakesh       |
+|          2 | mukunth      |
+|          3 | varun        |
++------------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> alter table hospital add patient_add varchar(20);
+Query OK, 3 rows affected (0.03 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> desc hospital;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| patient_id   | int(6)      | YES  |     | NULL    |       |
+| patient_name | char(8)     | YES  |     | NULL    |       |
+| disease_desc | char(16)    | YES  |     | NULL    |       |
+| patient_age  | int(10)     | YES  |     | NULL    |       |
+| patient_add  | varchar(20) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> select patient_name,disease_desc where patient_age=50;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where patient_age=50' at line 1
+mysql> select disease_desc from hospital where patient_age=50;
++--------------+
+| disease_desc |
++--------------+
+| jondis       |
++--------------+
+1 row in set (0.02 sec)
