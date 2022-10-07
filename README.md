@@ -25,18 +25,21 @@ https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp4_ddl%20com
 ## Experiment 10
 [SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp10_ddl%20commands.txt)
 ## Experiment 11
-[SQL Queries]()
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp_11%20ddl(if%2Celse).txt
+)
 ## Experiment 12
-[SQL Queries]()
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp12_ddl(loop).txt
+)
 ## Experiment 13
-[SQL Queries]()
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp13_ddl(savepoint%2Crollba)
 ## Experiment 14
-[SQL Queries]()
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp14_ddl(grant%2Crevoke).txt
+)
 ## Experiment 15
-[SQL Queries]()
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp15_highlevelprogramming.txt)
 ## Experiment 16
-[SQL Queries]()
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp16_ddl.txt)
 ## Experiment 17
-[SQL Queries]()
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp17_ddl.txt)
 ## Experiment 18
-[SQL Queries]()
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp18_ddl.txt)
