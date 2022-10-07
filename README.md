@@ -49,3 +49,11 @@ https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp4_ddl%20com
 [SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp20_ddl.txt)
 ## Experiment 21
 [SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp21_ddl.txt)
+## Experiment 22
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp22_ddl.txt)
+## Experiment 23
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp23_ddl.txt)
+## Experiment 24
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp24_ddl.txt)
+## Experiment 25
+[SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp25_ddl.txt)
