@@ -12,7 +12,7 @@ https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp4_ddl%20com
 ## Experiment 5_select with various clause(where)
 [SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp5_ddl%20commands.txt
 )
-## Experiment 6_select with various clause(between.in)
+## Experiment 6_select with various clause(between,in)
 [SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp6_ddl%20command.txt)
 ## Experiment 7_select with various clause(Group by,order by)
 [SQL Queries](https://github.com/PLKarthikNatarajan/CSA0526-DBMS-116-/blob/main/exp7_ddl%20commands.txt
